@@ -1,87 +1,89 @@
-# 🏏 IPL Data Analysis using Apache Spark on Databricks
+## 🏏 IPL Data Analysis using Apache Spark on Databricks 
+📌 Project Overview
+This project focuses on analyzing Indian Premier League (IPL) cricket match data using Apache Spark on Databricks, leveraging PySpark, SQL, and Matplotlib for scalable ETL, data exploration, and insightful visualizations.
+Goals:
 
-## 📌 **Project Overview**
-This project focuses on analyzing **Indian Premier League (IPL)** cricket match data using **Apache Spark** on **Databricks**, leveraging **Python**, **SQL**, and **Matplotlib** for **ETL**, **data exploration**, and **visualization**.  
-The goal is to **extract meaningful insights** from raw IPL datasets, such as:
+## Team performance trends
+Player statistics
+Match outcomes
+Venue-based analysis
 
-- Team performance  
-- Player statistics  
-- Match outcomes  
-- Venue analysis  
 
----
+## 🛠️ Tools & Technologies Used
 
-## 🛠️ **Tools & Technologies Used**
+Apache Spark: Distributed data processing for large-scale ETL and analytics
+Databricks: Unified cloud platform for big data analytics and collaborative notebooks
+PySpark (Python): For data manipulation and transformation
+SQL: For structured querying within Spark
+Matplotlib & Seaborn: For data visualization
+Pandas: For local data manipulation and plotting
 
-- **Apache Spark**: Distributed data processing engine for ETL and analytics  
-- **Databricks**: Cloud-based platform for big data analytics and collaborative notebooks  
-- **Python (PySpark)**: For writing Spark jobs and data manipulation  
-- **SQL**: For querying structured data within Spark  
-- **Matplotlib**: For creating visualizations  
-- **Pandas**: For local data manipulation and plotting  
 
----
+## 📂 Dataset Description
+Publicly available IPL datasets (e.g., from Kaggle):
 
-## 📂 **Dataset Description**
+matches.csv: Match-level data (teams, venue, toss, winner, etc.)
+deliveries.csv: Ball-by-ball data (batsman, bowler, runs, wickets, extras, etc.)
 
-The project uses IPL datasets typically containing:
 
-- `matches.csv`: Match-level data including teams, venue, toss, winner, etc.  
-- `deliveries.csv`: Ball-by-ball data including batsman, bowler, runs, wickets, etc.  
+## 🔄 ETL Process
+1. 📥 Data Ingestion
 
-These datasets are publicly available on platforms like **Kaggle**.
+Loaded CSV files into Spark DataFrames using defined schemas
+Verified schema integrity and performed initial inspection
 
----
+2. 🧹 Data Cleaning
 
-## 🔄 **ETL Process**
+Removed duplicates and handled missing values
+Standardized team and player names
+Filtered out invalid deliveries (e.g., wides, no-balls for specific analyses)
 
-### 1. 📥 **Data Ingestion**
-- Loaded CSV files into Databricks using Spark DataFrames  
-- Verified schema and performed initial data inspection  
+3. 🔄 Data Transformation
 
-### 2. 🧹 **Data Cleaning**
-- Handled missing values and inconsistent entries  
-- Standardized team names and player names  
-- Removed duplicate records  
+Joined match and delivery datasets for enriched analytics
+Created derived columns: total runs, wickets, strike rate, economy rate, etc.
+Applied window functions for running totals and rankings
+Added conditional flags (e.g., high-impact deliveries, veteran players)
 
-### 3. 🔄 **Data Transformation**
-- Joined `matches` and `deliveries` datasets for enriched analysis  
-- Created derived columns like total runs, wickets per match, strike rate, economy rate, etc.  
-- Aggregated data for team-wise and player-wise performance  
 
----
+📊 Key Analyses Performed
+🏆 Match & Team Analysis
 
-## 📊 **Analysis Performed**
+Total matches played per season
+Most successful teams by win count
+Toss decision impact on match outcome
+Categorized win margins: High, Medium, Low
 
-### 🏆 **Match & Team Analysis**
-- Total matches played per season  
-- Most successful teams by win count  
-- Toss decision impact on match outcome  
+👨‍🏫 Player Performance
 
-### 👨‍🏫 **Player Performance**
-- Top run scorers and wicket takers  
-- Best strike rate and economy rate  
-- Player of the match frequency  
+Top run scorers and wicket takers
+Best strike rate and economy rate
+Veteran player identification (age ≥ 35)
+Years since debut calculation
+Player performance in winning matches
 
-### 🏟️ **Venue Insights**
-- Most matches played at each venue  
-- Venue-wise win percentage  
+🏟️ Venue Insights
 
-### 📈 **Season Trends**
-- Runs scored per season  
-- Wickets taken per season  
-- Average match duration and scores  
+Average and highest scores by venue
+Most matches played per venue
+Venue-wise team performance
 
----
+📈 Season Trends
+
+Runs scored per season
+Wickets taken per season
+Average match duration and scores
+
 
 ## 📉 Visualizations
-Created using Matplotlib and Pandas:
+Created using Matplotlib and Seaborn:
 
--📊 Bar charts for top players and teams
--🥧 Pie charts for toss decisions
--📈 Line graphs for season-wise trends
--🔥 Heatmaps for venue performance
+📊 Bar charts: Top players and teams
+🥧 Pie charts: Toss decisions
+📈 Line graphs: Season-wise trends
+🔥 Heatmaps: Venue performance
+📉 Player performance in wins (Top 10 scorers)
+
 
 ## ✅ Conclusion
-This project demonstrates how big data tools like Apache Spark can be used to perform scalable and insightful sports analytics.
-It combines ETL, SQL querying, and visualization to uncover patterns in IPL cricket data.
+This project demonstrates how big data tools like Apache Spark can be used to perform scalable and insightful sports analytics. It combines ETL, SQL querying, and visualization to uncover hidden patterns in IPL cricket data, making it a strong portfolio project for data engineering and analytics roles.
